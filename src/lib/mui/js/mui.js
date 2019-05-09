@@ -6447,6 +6447,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
             if (target.parentNode && target.parentNode.classList && target.parentNode.classList.contains(CLASS_SEGMENTED_CONTROL_VERTICAL)) {
                 //vertical 如果preventDefault会导致无法滚动
             } else {
+					
 
                     event.preventDefault();      
                     // if(target.tagName == 'A') {
