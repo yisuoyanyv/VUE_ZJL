@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "dev": "webpack-dev-server",
-    "dev2": "webpack-dev-server --open --port 3002 --contentBase src --hot"
+    "dev2": "webpack-dev-server --open --port 3002 --contentBase src --hot",
+    "dev3": "webpack-dev-server --open --port 3003  --hot --host 192.168.1.7"
   },
   "keywords": [],
   "author": "zjl <jinglongzh@qq.com>",
@@ -18,7 +19,8 @@
     "moment": "^2.24.0",
     "vue": "^2.6.10",
     "vue-resource": "^1.5.1",
-    "vue-router": "^3.0.6"
+    "vue-router": "^3.0.6",
+    "vue2-preview": "^1.0.5"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

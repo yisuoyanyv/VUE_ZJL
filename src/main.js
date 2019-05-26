@@ -15,7 +15,7 @@ import VueResource from 'vue-resource'
 //2.2安装 vue-resource
 Vue.use(VueResource)
 
-Vue.http.options.root='http://zjlspace'//TODO
+Vue.http.options.root='http://localhost:8080/'//TODO
 //全局设置 post 时候表单数据格式 组织形式
 Vue.http.options.emulateJSON=true
 
@@ -34,6 +34,10 @@ Vue.use(Lazyload);*/
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
+
+//安装图片预览插件
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
 
 //1.3导入自己的 router.js路由模块
 import router from './router.js'

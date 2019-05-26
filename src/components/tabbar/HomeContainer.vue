@@ -1,11 +1,7 @@
 <template>
   <div>
     <!-- 轮播图区 -->
-    <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="item in lunbotuList" :key="item.url">
-        <img :src="item.img">
-      </mt-swipe-item>
-    </mt-swipe>
+    <swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>
 
     <!-- 九宫格 到 六宫格 改造 -->
 
@@ -24,10 +20,10 @@
         </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
+        <router-link to="/home/goodslist">
           <img src="../../images/购买.png" alt="" >
           <div class="mui-media-body">商品购买</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
         <a href="#">
@@ -52,13 +48,14 @@
 </template>
 <script>
 import { Toast } from "mint-ui";
+import swiper from "../subcomponents/swiper.vue"
 export default {
   data() {
     return {
       lunbotuList: [
-          {url:'1',img:'http://b-ssl.duitang.com/uploads/item/201312/05/20131205171908_SEnjm.thumb.700_0.jpeg'},
-          {url:'2',img:'http://img2.ph.126.net/dOAqy2E6Ksvh1KnsMVbx2w==/6631435002582387419.jpg'},
-          {url:'3',img:'http://b-ssl.duitang.com/uploads/blog/201306/06/20130606093816_whscP.jpeg'},
+          // {id:'1',img:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3386943452,2432197688&fm=26&gp=0.jpg'},
+          // {id:'2',img:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1742886454,2307269776&fm=26&gp=0.jpg'},
+          // {id:'3',img:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2231222646,2938648366&fm=26&gp=0.jpg'},
           
           ]
     };
@@ -66,17 +63,16 @@ export default {
   methods: {
     getLunbotu() {
       //获取轮播图数据的方法
-      // this.$http.get('http://vue.studyit.io/api/getlunbo').then(result=>{
-
       this.$http
         .get(
-          "https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"
+          "api/slideshow/list"
         )
         .then(result => {
+          console.log(result)
           console.log(result.body);
-          if (result.body.result === 0) {
+          if (result.status === 200) {
             //成功了
-            this.lunbotuList = result.body.message;
+            this.lunbotuList = result.body;
           } else {
             //失败的
             Toast("加载轮播图失败...");
@@ -84,34 +80,16 @@ export default {
         });
     }
   },
+  components:{
+    swiper
+  },
   created() {
-    // this.getLunbotu();
+    this.getLunbotu();
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.mint-swipe {
-  height: 200px;
-  // .mint-swipe-item:nth-child(1){
-  //     background-color: red;
-  // }
-  .mint-swipe-item {
-    &:nth-child(1) {
-      background-color: red;
-    }
-    &:nth-child(2) {
-      background-color: green;
-    }
-    &:nth-child(3) {
-      background-color: blue;
-    }
-  }
-  img {
-    width: 100%;
-    height: 100%;
-  }
-}
 
 .mui-grid-view.mui-grid-9 .mui-table-view-cell{
     background-color: white;
