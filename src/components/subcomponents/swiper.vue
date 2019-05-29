@@ -32,15 +32,15 @@ export default {
   //     background-color: red;
   // }
   .mint-swipe-item {
-    &:nth-child(1) {
-      background-color: red;
-    }
-    &:nth-child(2) {
-      background-color: green;
-    }
-    &:nth-child(3) {
-      background-color: blue;
-    }
+    // &:nth-child(1) {
+    //   background-color: red;
+    // }
+    // &:nth-child(2) {
+    //   background-color: green;
+    // }
+    // &:nth-child(3) {
+    //   background-color: blue;
+    // }
   }
   img {
     // width: 100%;

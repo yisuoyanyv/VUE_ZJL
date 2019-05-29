@@ -123,3 +123,4 @@ babel-plugin-transform-remove-strict-mode
 3. 打开自己的项目中 package.json文件中，在dev脚本中，添加一个 --host指令，把当前电脑的WIFI IP地址，设置为--host的指令值；
  +  如何查看自己电脑 所处WI-FI 的IP 呢，在cmd终端中运行 ‘ipconfig',查看 无线网络的的IP地址
  
+## 引入vuex
